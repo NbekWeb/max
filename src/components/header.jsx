@@ -1,130 +1,130 @@
 import { useEffect } from "react";
-import lenis from "@/utils/scroll"; // Adjust path if needed
+// import lenis from "@/utils/scroll";
 
 const BurgerMenu = () => {
-  const setColorHeader = () => {
-    if (typeof document == "undefined") return;
+  // const setColorHeader = () => {
+  //   if (typeof document == "undefined") return;
 
-    let header = document.querySelector(".header");
-    let scrollY = window.scrollY;
+  //   let header = document.querySelector(".header");
+  //   let scrollY = window.scrollY;
 
-    if (
-      Math.ceil(scrollY) >=
-      document.querySelector("#contacts").getBoundingClientRect().top +
-        scrollY -
-        40
-    ) {
-      header.style.setProperty("--header-color", "var(--accent-color)");
-    } else if (
-      Math.ceil(scrollY) >= document.querySelector(".hero").clientHeight - 40 &&
-      document.documentElement.classList.contains("touch")
-    ) {
-      header.style.setProperty("--header-color", "var(--accent-color)");
-    } else if (
-      Math.ceil(scrollY) >= window.innerWidth / 2 &&
-      !document.documentElement.classList.contains("touch")
-    ) {
-      header.style.setProperty("--header-color", "var(--accent-color)");
-    } else {
-      header.style.setProperty("--header-color", "var(--secondary-color)");
-    }
+  //   if (
+  //     Math.ceil(scrollY) >=
+  //     document.querySelector("#contacts").getBoundingClientRect().top +
+  //       scrollY -
+  //       40
+  //   ) {
+  //     header.style.setProperty("--header-color", "var(--accent-color)");
+  //   } else if (
+  //     Math.ceil(scrollY) >= document.querySelector(".hero").clientHeight - 40 &&
+  //     document.documentElement.classList.contains("touch")
+  //   ) {
+  //     header.style.setProperty("--header-color", "var(--accent-color)");
+  //   } else if (
+  //     Math.ceil(scrollY) >= window.innerWidth / 2 &&
+  //     !document.documentElement.classList.contains("touch")
+  //   ) {
+  //     header.style.setProperty("--header-color", "var(--accent-color)");
+  //   } else {
+  //     header.style.setProperty("--header-color", "var(--secondary-color)");
+  //   }
 
-    if (
-      Math.ceil(scrollY) >=
-      document.querySelector("#contacts").getBoundingClientRect().top +
-        scrollY -
-        40
-    ) {
-      header.style.setProperty("--header-color", "var(--accent-color)");
-      header.style.setProperty("--header-background", "transparent");
-    } else {
-      header.style.setProperty("--header-background", "var(--primary-color)");
-    }
-  };
+  //   if (
+  //     Math.ceil(scrollY) >=
+  //     document.querySelector("#contacts").getBoundingClientRect().top +
+  //       scrollY -
+  //       40
+  //   ) {
+  //     header.style.setProperty("--header-color", "var(--accent-color)");
+  //     header.style.setProperty("--header-background", "transparent");
+  //   } else {
+  //     header.style.setProperty("--header-background", "var(--primary-color)");
+  //   }
+  // };
 
-  setColorHeader();
-  useEffect(() => {
-    // Ensure Lenis is initialized only on the client side
-    if (!lenis) return;
+  // setColorHeader();
+  // useEffect(() => {
+  //   // Ensure Lenis is initialized only on the client side
+  //   if (!lenis) return;
 
-    // Burger hover and menu toggle interactions
-    const burgerLinks = document.querySelectorAll(".burger__link");
-    const burger = document.querySelector(".burger");
-    const headerBurger = document.querySelector(".header__burger");
-    const burgerClose = document.querySelector(".burger__close");
+  //   // Burger hover and menu toggle interactions
+  //   const burgerLinks = document.querySelectorAll(".burger__link");
+  //   const burger = document.querySelector(".burger");
+  //   const headerBurger = document.querySelector(".header__burger");
+  //   const burgerClose = document.querySelector(".burger__close");
 
-    burgerLinks.forEach((link) => {
-      link.addEventListener("mouseover", () => {
-        link.classList.add("hoverin");
-      });
-      link.addEventListener("mouseout", () => {
-        link.classList.remove("hoverin");
-        link.classList.add("hoverout");
-        setTimeout(() => {
-          link.classList.remove("hoverout");
-        }, 400);
-      });
-    });
+  //   burgerLinks.forEach((link) => {
+  //     link.addEventListener("mouseover", () => {
+  //       link.classList.add("hoverin");
+  //     });
+  //     link.addEventListener("mouseout", () => {
+  //       link.classList.remove("hoverin");
+  //       link.classList.add("hoverout");
+  //       setTimeout(() => {
+  //         link.classList.remove("hoverout");
+  //       }, 400);
+  //     });
+  //   });
 
-    headerBurger.addEventListener("click", (e) => {
-      e.preventDefault();
-      let nowScroll = window.scrollY;
-      document.documentElement.style.setProperty(
-        "--scroll-before-popup",
-        nowScroll
-      );
-      if (!document.documentElement.classList.contains("touch")) {
-        lenis.stop();
-      }
-      burger.classList.add("open");
-    });
+  //   headerBurger.addEventListener("click", (e) => {
+  //     e.preventDefault();
+  //     let nowScroll = window.scrollY;
+  //     document.documentElement.style.setProperty(
+  //       "--scroll-before-popup",
+  //       nowScroll
+  //     );
+  //     if (!document.documentElement.classList.contains("touch")) {
+  //       lenis.stop();
+  //     }
+  //     burger.classList.add("open");
+  //   });
 
-    burgerClose.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (!document.documentElement.classList.contains("touch")) {
-        lenis.start();
-      }
-      burger.classList.remove("open");
-      window.scrollTo({
-        top: Number(
-          document.documentElement.style.getPropertyValue(
-            "--scroll-before-popup"
-          )
-        ),
-      });
-    });
+  //   burgerClose.addEventListener("click", (e) => {
+  //     e.preventDefault();
+  //     if (!document.documentElement.classList.contains("touch")) {
+  //       lenis.start();
+  //     }
+  //     burger.classList.remove("open");
+  //     window.scrollTo({
+  //       top: Number(
+  //         document.documentElement.style.getPropertyValue(
+  //           "--scroll-before-popup"
+  //         )
+  //       ),
+  //     });
+  //   });
 
-    return () => {
-      burgerLinks.forEach((link) => {
-        link.removeEventListener("mouseover", () => {});
-        link.removeEventListener("mouseout", () => {});
-      });
-      headerBurger.removeEventListener("click", () => {});
-      burgerClose.removeEventListener("click", () => {});
-    };
-  }, []);
-  useEffect(() => {
-    setColorHeader();
-    const setHeaderHeight = () => {
-      document.documentElement.style.setProperty(
-        "--header-height",
-        document.querySelector(".header").clientHeight
-      );
-    };
+  //   return () => {
+  //     burgerLinks.forEach((link) => {
+  //       link.removeEventListener("mouseover", () => {});
+  //       link.removeEventListener("mouseout", () => {});
+  //     });
+  //     headerBurger.removeEventListener("click", () => {});
+  //     burgerClose.removeEventListener("click", () => {});
+  //   };
+  // }, []);
+  // useEffect(() => {
+  //   setColorHeader();
+  //   const setHeaderHeight = () => {
+  //     document.documentElement.style.setProperty(
+  //       "--header-height",
+  //       document.querySelector(".header").clientHeight
+  //     );
+  //   };
 
-    window.addEventListener("scroll", setColorHeader);
-    window.addEventListener("resize", setColorHeader);
-    window.addEventListener("scroll", setHeaderHeight);
-    window.addEventListener("resize", setHeaderHeight);
+  //   window.addEventListener("scroll", setColorHeader);
+  //   window.addEventListener("resize", setColorHeader);
+  //   window.addEventListener("scroll", setHeaderHeight);
+  //   window.addEventListener("resize", setHeaderHeight);
 
-    // Cleanup event listeners on component unmount
-    return () => {
-      window.removeEventListener("scroll", setColorHeader);
-      window.removeEventListener("resize", setColorHeader);
-      window.removeEventListener("scroll", setHeaderHeight);
-      window.removeEventListener("resize", setHeaderHeight);
-    };
-  }, []);
+  //   // Cleanup event listeners on component unmount
+  //   return () => {
+  //     window.removeEventListener("scroll", setColorHeader);
+  //     window.removeEventListener("resize", setColorHeader);
+  //     window.removeEventListener("scroll", setHeaderHeight);
+  //     window.removeEventListener("resize", setHeaderHeight);
+  //   };
+  // }, []);
 
   return (
     <>

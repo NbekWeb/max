@@ -18,7 +18,7 @@ const ServicesSlider = () => {
     });
 
     // Accordion functionality
- 
+
     const pointsContainer = document.querySelector(".services__accordion");
 
     gsap.registerPlugin(ScrollTrigger);
@@ -27,9 +27,9 @@ const ServicesSlider = () => {
       ease: "none",
       scrollTrigger: {
         trigger: ".services__slider",
-        start: "top bottom",  // Trigger when the top of the container reaches the bottom of the viewport
-        end: "bottom top",    // End when the bottom of the container reaches the top of the viewport
-        scrub: true,          // Smooth scrolling
+        start: "top bottom", // Trigger when the top of the container reaches the bottom of the viewport
+        end: "bottom top", // End when the bottom of the container reaches the top of the viewport
+        scrub: true, // Smooth scrolling
       },
     });
 
@@ -102,6 +102,7 @@ const ServicesSlider = () => {
               />
             </div>
           </div>
+
           <ul className="services__accordion">
             <div className="services__bg">
               <img src="/icon/back-business.svg" alt="Background Icon" />
@@ -171,7 +172,7 @@ const ServicesSlider = () => {
                 <p className="services-point__paragraph base-text">
                   This unit will allow MAX TECHNIQUE to act independently
                   without the need to borrow equipment from other vendors.
-                  Furthermore, it will let carriers reduce cost per landing.
+                  Furthermore, it will let carriers to reduce cost per landing.
                 </p>
                 <p className="services-point__paragraph base-text services-point__paragraph--margin-small">
                   The kit consists of:
@@ -202,8 +203,121 @@ const ServicesSlider = () => {
                 </button>
               </section>
             </li>
-            {/* Add other service points here in the same format */}
+            <li
+              className="services__point services-point"
+              id="services-point-three"
+            >
+              <header className="services-point__header">
+                <span className="services-point__title-accent">
+                  <img src="/icon/tab-active.svg" alt="Tab Active Icon" />
+                </span>
+                <h3 className="services-point__title">
+                  Tools, equipment leasingand consumable supply
+                </h3>
+              </header>
+              <section className="services-point__content">
+                <p className="services-point__paragraph services-point__paragraph--margin-small base-text">
+                  MAX TECHNIQUE is equipped with the latest and technically
+                  advanced tools and equipment for most types of aircrafts.
+                </p>
+                <p className="services-point__paragraph base-text">
+                  Tools and equipment are stored in a controlled atmosphere
+                  storage facility, regularly calibrated and maintained to the
+                  highest standards.
+                </p>
+                <p className="services-point__paragraph base-text">
+                  MAX TECHNIQUE is ready to support partner companies with
+                  leasing tools and equipment.
+                </p>
+                <button className="services-point__button base-button order-open">
+                  <span>Place order</span>
+                </button>
+              </section>
+            </li>
+            <li
+              className="services__point services-point"
+              id="services-point-four"
+            >
+              <header className="services-point__header">
+                <span className="services-point__title-accent">
+                  <img src="/icon/tab-active.svg" alt="Tab Active Icon" />
+                </span>
+                <h3 className="services-point__title">
+                  Technical store collection/delivery(logistic) services
+                </h3>
+              </header>
+              <section className="services-point__content">
+                <p className="services-point__paragraph base-text services-point__paragraph--margin-small">
+                  If your aircraft is unable to be dispatched due to
+                  unavailability of a specific spare part, MAX TECHNIQUE will
+                  arrange the logistics for the needed spares to reach Dubai
+                  Airport as early as possible.
+                </p>
+                <p className="services-point__paragraph base-text">
+                  This will minimize your ground time and parking fees, as well
+                  as reducing the cost of landing.
+                </p>
+                <button className="services-point__button base-button order-open">
+                  <span>Place order</span>
+                </button>
+              </section>
+            </li>
+            <li
+              className="services__point services-point"
+              id="services-point-five"
+            >
+              <header className="services-point__header">
+                <span className="services-point__title-accent">
+                  <img src="/icon/tab-active.svg" alt="Tab Active Icon" />
+                </span>
+                <h3 className="services-point__title">
+                  Technical store space leasing, tools management
+                </h3>
+              </header>
+              <section className="services-point__content">
+                <p className="services-point__paragraph base-text">
+                  You can lease a space to store your aircraft spares and
+                  equipment at MAX TECHNIQUE.
+                </p>
+                <p className="services-point__paragraph base-text">
+                  The MAX TECHNIQUE store management can offer aircraft spare
+                  parts storage and administration in compliance with strict
+                  aviation standards.
+                </p>
+                <button className="services-point__button base-button order-open">
+                  <span>Place order</span>
+                </button>
+              </section>
+            </li>
+            <li
+              className="services__point services-point"
+              id="services-point-six"
+            >
+              <header className="services-point__header">
+                <span className="services-point__title-accent">
+                  <img src="/icon/tab-active.svg" alt="Tab Active Icon" />
+                </span>
+                <h3 className="services-point__title">
+                  Aircraft headset services
+                </h3>
+              </header>
+              <section className="services-point__content">
+                <p className="services-point__paragraph base-text">
+                  MAX TECHNIQUE provides arrival, departure and towing headset
+                  communication services for airliners.
+                </p>
+                <p className="services-point__paragraph base-text">
+                  We are well equipped with headsets and experienced and trained
+                  staffs.
+                </p>
+                <button className="services-point__button base-button order-open">
+                  <span>Place order</span>
+                </button>
+              </section>
+            </li>
           </ul>
+
+    
         </div>
       </div>
     </article>

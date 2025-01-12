@@ -1,10 +1,13 @@
+'use client'
+
+
 import Head from "next/head";
 import Image from "next/image";
 import { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-import isTouch from "@/utils/isTouch";
+// import isTouch from "@/utils/isTouch";
 
 import Header from "@/components/Header";
 import Foot from "@/components/foot";
@@ -16,10 +19,6 @@ import Services from "@/components/services";
 import Contacts from "@/components/contacts";
 
 gsap.registerPlugin(ScrollTrigger);
-
-
-
-
 
 export default function Home() {
   useEffect(() => {
@@ -53,24 +52,24 @@ export default function Home() {
     };
   }, []);
 
-  useEffect(() => {
-    if (!isTouch()) {
-      gsap.to(".horizontal-scroll-container", {
-        x: "-100vw",
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".horizontal-scroll-container",
-          end: () => "+=" + 1 * window.outerWidth,
-          pin: true,
-          scrub: 0,
-        },
-      });
-    }
+  // useEffect(() => {
+  //   if (!isTouch()) {
+  //     gsap.to(".horizontal-scroll-container", {
+  //       x: "-100vw",
+  //       ease: "none",
+  //       scrollTrigger: {
+  //         trigger: ".horizontal-scroll-container",
+  //         end: () => "+=" + 1 * window.outerWidth,
+  //         pin: true,
+  //         scrub: 0,
+  //       },
+  //     });
+  //   }
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
+  //   return () => {
+  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   };
+  // }, []);
 
   return (
     <>
@@ -87,19 +86,44 @@ export default function Home() {
           <Services />
           <Contacts />
         </main>
-        {/* <Foot /> */}
+        <Foot />
       </div>
-      {/* <div className="scroll-up">
-          <div className="scroll-up__container container">
-            <a
-              className="scroll-up__link"
-              href="#hero"
-              data-anchor-position="0vw"
+      <div className="scroll-up">
+        <div className="scroll-up__container container">
+          <a
+            className="scroll-up__link"
+            href="#hero"
+            data-anchor-position="0vw"
+          >
+            <svg
+              width="42"
+              height="42"
+              viewBox="0 0 42 42"
+              stroke="#656565"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <ArrowUpIcon />
-            </a>
-          </div>
-        </div> */}
+              <path
+                d="M21 41C32.0457 41 41 32.0457 41 21C41 9.9543 32.0457 1 21 1C9.9543 1 1 9.9543 1 21C1 32.0457 9.9543 41 21 41Z"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M29 21L21 13L13 21"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M21 29V13"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
     </>
   );
 }
