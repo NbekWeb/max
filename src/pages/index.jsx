@@ -6,14 +6,14 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 import isTouch from "@/utils/isTouch";
 
-import Header from "../components/Header";
-import Foot from "../components/foot";
-import Order from "../components/order";
-import Hero from "../components/hero";
-import Business from "../components/business";
-import Gallery from "../components/gallery";
-import Services from "../components/services";
-import Contacts from "../components/contacts";
+import Header from "@/components/Header";
+import Foot from "@/components/foot";
+import Order from "@/components/order";
+import Hero from "@/components/hero";
+import Business from "@/components/business";
+import Gallery from "@/components/gallery";
+import Services from "@/components/services";
+import Contacts from "@/components/contacts";
 
 gsap.registerPlugin(ScrollTrigger);
 
