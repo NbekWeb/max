@@ -2,6 +2,47 @@ import { useEffect } from "react";
 import lenis from "@/utils/scroll"; // Adjust path if needed
 
 const BurgerMenu = () => {
+  const setColorHeader = () => {
+    if (typeof document == "undefined") return;
+
+    let header = document.querySelector(".header");
+    let scrollY = window.scrollY;
+
+    if (
+      Math.ceil(scrollY) >=
+      document.querySelector("#contacts").getBoundingClientRect().top +
+        scrollY -
+        40
+    ) {
+      header.style.setProperty("--header-color", "var(--accent-color)");
+    } else if (
+      Math.ceil(scrollY) >= document.querySelector(".hero").clientHeight - 40 &&
+      document.documentElement.classList.contains("touch")
+    ) {
+      header.style.setProperty("--header-color", "var(--accent-color)");
+    } else if (
+      Math.ceil(scrollY) >= window.innerWidth / 2 &&
+      !document.documentElement.classList.contains("touch")
+    ) {
+      header.style.setProperty("--header-color", "var(--accent-color)");
+    } else {
+      header.style.setProperty("--header-color", "var(--secondary-color)");
+    }
+
+    if (
+      Math.ceil(scrollY) >=
+      document.querySelector("#contacts").getBoundingClientRect().top +
+        scrollY -
+        40
+    ) {
+      header.style.setProperty("--header-color", "var(--accent-color)");
+      header.style.setProperty("--header-background", "transparent");
+    } else {
+      header.style.setProperty("--header-background", "var(--primary-color)");
+    }
+  };
+
+  setColorHeader();
   useEffect(() => {
     // Ensure Lenis is initialized only on the client side
     if (!lenis) return;
@@ -53,7 +94,6 @@ const BurgerMenu = () => {
       });
     });
 
-    // Cleanup event listeners
     return () => {
       burgerLinks.forEach((link) => {
         link.removeEventListener("mouseover", () => {});
@@ -62,54 +102,9 @@ const BurgerMenu = () => {
       headerBurger.removeEventListener("click", () => {});
       burgerClose.removeEventListener("click", () => {});
     };
-  }, []); // Empty dependency array ensures this runs only once when the component mounts
-
+  }, []);
   useEffect(() => {
-    // Function to set header color based on scroll
-    const setColorHeader = () => {
-      let header = document.querySelector(".header");
-      let scrollY = window.scrollY;
-
-      if (
-        Math.ceil(scrollY) >=
-        document.querySelector("#contacts").getBoundingClientRect().top +
-          scrollY -
-          40
-      ) {
-        console.log(
-          document.querySelector("#contacts").getBoundingClientRect().top +
-            scrollY
-        );
-        header.style.setProperty("--header-color", "var(--accent-color)");
-      } else if (
-        Math.ceil(scrollY) >=
-          document.querySelector(".hero").clientHeight - 40 &&
-        document.documentElement.classList.contains("touch")
-      ) {
-        header.style.setProperty("--header-color", "var(--accent-color)");
-      } else if (
-        Math.ceil(scrollY) >= window.innerWidth / 2 &&
-        !document.documentElement.classList.contains("touch")
-      ) {
-        header.style.setProperty("--header-color", "var(--accent-color)");
-      } else {
-        header.style.setProperty("--header-color", "var(--secondary-color)");
-      }
-
-      if (
-        Math.ceil(scrollY) >=
-        document.querySelector("#contacts").getBoundingClientRect().top +
-          scrollY -
-          40
-      ) {
-        header.style.setProperty("--header-color", "var(--accent-color)");
-        header.style.setProperty("--header-background", "transparent");
-      } else {
-        header.style.setProperty("--header-background", "var(--primary-color)");
-      }
-    };
-
-    // Function to set header height
+    setColorHeader();
     const setHeaderHeight = () => {
       document.documentElement.style.setProperty(
         "--header-height",
@@ -117,7 +112,6 @@ const BurgerMenu = () => {
       );
     };
 
-    // Event listeners
     window.addEventListener("scroll", setColorHeader);
     window.addEventListener("resize", setColorHeader);
     window.addEventListener("scroll", setHeaderHeight);

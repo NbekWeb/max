@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "gsap": "^3.12.5",
     "lenis": "^1.1.19",
     "next": "15.1.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "sass": "^1.83.1"
+    "sass": "^1.83.1",
+    "swiper": "^11.2.1"
   }
 }

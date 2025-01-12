@@ -1,4 +1,6 @@
-import "@/styles/index.scss"; // Import your global SCSS file
+import "@/styles/index.scss";
+import "swiper/css";
+import "swiper/css/navigation";
 import {
   useEffect
 } from "react";
